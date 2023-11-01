@@ -92,6 +92,11 @@ public class ViewTopicVid extends AppCompatActivity {
                     "TCP/IP",
                     "Routing Protocols"
             };
+            String[] content = {
+                    "The Open Systems Interconnection model (OSI model) is a conceptual model from the International Organization for Standardization (ISO) that \"provides a common basis for the coordination of standards development for the purpose of systems interconnection.\"[2] In the OSI reference model, the communications between systems are split into seven different abstraction layers: Physical, Data Link, Network, Transport, Session, Presentation, and Application.",
+                    "The Internet protocol suite, commonly known as TCP/IP, is a framework for organizing the set of communication protocols used in the Internet and similar computer networks according to functional criteria. The foundational protocols in the suite are the Transmission Control Protocol (TCP), the User Datagram Protocol (UDP), and the Internet Protocol (IP).",
+                    "A routing protocol specifies how routers communicate with each other to distribute information that enables them to select paths between nodes on a computer network. Routers perform the traffic directing functions on the Internet; data packets are forwarded through the networks of the internet from router to router until they reach their destination computer."
+            };
             String[] videoUrls = {
                     "https://youtu.be/qBXmbJZQ5rY?si=lf2pYjRQ6C0yb1Tq",
                     "https://youtu.be/PpsEaqJV_A0?si=F3Lq38TWhUMaNIZR",
@@ -101,11 +106,43 @@ public class ViewTopicVid extends AppCompatActivity {
             String selectedVideoUrl = videoUrls[topicNumber-1];
             webView.setWebViewClient(new WebViewClient());
             webView.loadUrl(selectedVideoUrl);
+            TextView contentAboutTopic = findViewById(R.id.textView);
+            contentAboutTopic.setText(content[topicNumber-1]);
+
+            Button downloadButton = findViewById(R.id.downloadButton);
+
+            String[] urls = {
+                    "https://drive.google.com/uc?export=download&id=1zSJ5PElfTFBhsuoh0he1sLvdyt-IN4H6",
+                    "https://drive.google.com/uc?export=download&id=17ZiUHjC2wdcDjz3xRxeoojiXtFGvMHw-",
+                    "https://drive.google.com/uc?export=download&id=1OKCd1jZsntBEyH6ki_gFKJNbW9ctjkBi"
+            };
+            downloadButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openPdfFromDrive(urls[topicNumber-1]);
+//                    downloadPdf();
+//                    copyRawFileToLocalStorage();
+//                    Intent intent = new Intent(ViewTopicVid.this, ViewPdf.class);
+//
+//                    intent.putExtra("tN", topics[topicNumber-1]); // Change this number to select the desired topic
+//                    startActivity(intent);
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urls[topicNumber-1]));
+//                    if (intent.resolveActivity(getPackageManager()) != null) {
+//                        startActivity(intent);
+//                    }
+                }
+            });
+
         }else if (topicName.equals("Design and Analysis of Algorithms")){
             String[] topics = {
                     "Backtracking",
                     "Multistage Graph",
                     "Knapsack"
+            };
+            String[] content = {
+                    "Backtracking is a class of algorithms for finding solutions to some computational problems, notably constraint satisfaction problems, that incrementally builds candidates to the solutions, and abandons a candidate (\"backtracks\") as soon as it determines that the candidate cannot possibly be completed to a valid solution.",
+                    "Multistage Graph theory is the study of graphs that have multiple levels or stages. The most common type of multistage graph is a tree, which consists of a root node (the starting point) and a series of child nodes (the branches).",
+                    "The knapsack problem is the following problem in combinatorial optimization: Given a set of items, each with a weight and a value, determine which items to include in the collection so that the total weight is less than or equal to a given limit and the total value is as large as possible. It derives its name from the problem faced by someone who is constrained by a fixed-size knapsack and must fill it with the most valuable items. The problem often arises in resource allocation where the decision-makers have to choose from a set of non-divisible projects or tasks under a fixed budget or time constraint, respectively."
             };
             String[] videoUrls = {
                     "https://youtu.be/s7AvT7cGdSo?si=Hy63LEKluvuf1PD0",
@@ -116,6 +153,33 @@ public class ViewTopicVid extends AppCompatActivity {
             String selectedVideoUrl = videoUrls[topicNumber-1];
             webView.setWebViewClient(new WebViewClient());
             webView.loadUrl(selectedVideoUrl);
+            TextView contentAboutTopic = findViewById(R.id.textView);
+            contentAboutTopic.setText(content[topicNumber-1]);
+
+            Button downloadButton = findViewById(R.id.downloadButton);
+
+            String[] urls = {
+                    "https://drive.google.com/uc?export=download&id=1CVTrlPh-37tGDYJcUX47Mc1LCea00thF",
+                    "https://drive.google.com/uc?export=download&id=1rA70yy_CaFfdnbFDT7g-2OARtccQa82A",
+                    "https://drive.google.com/uc?export=download&id=1Wq4wxGszl_fucwUikrfXNieXHc4TDJaz"
+            };
+            downloadButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openPdfFromDrive(urls[topicNumber-1]);
+//                    downloadPdf();
+//                    copyRawFileToLocalStorage();
+//                    Intent intent = new Intent(ViewTopicVid.this, ViewPdf.class);
+//
+//                    intent.putExtra("tN", topics[topicNumber-1]); // Change this number to select the desired topic
+//                    startActivity(intent);
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urls[topicNumber-1]));
+//                    if (intent.resolveActivity(getPackageManager()) != null) {
+//                        startActivity(intent);
+//                    }
+                }
+            });
+
         }
     }
     private void openPdfFromDrive(String pdfDriveUrl) {

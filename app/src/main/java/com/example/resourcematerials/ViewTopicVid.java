@@ -1,8 +1,10 @@
 package com.example.resourcematerials;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -18,6 +20,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ViewTopicVid extends AppCompatActivity {
     private static final int REQUEST_PERMISSION_CODE = 123; // You can change the request code as needed.
@@ -58,15 +62,26 @@ public class ViewTopicVid extends AppCompatActivity {
             contentAboutTopic.setText(content[topicNumber-1]);
 
             Button downloadButton = findViewById(R.id.downloadButton);
+
+            String[] urls = {
+                    "https://drive.google.com/uc?export=download&id=1CQZzTCdCBY0EqY-vGt5xSz8xp-jPQpC0",
+                    "https://drive.google.com/uc?export=download&id=1GRt83W-SbYTHqM-6RgrqSU31IwNSumK3",
+                    "https://drive.google.com/uc?export=download&id=1_TebdDvaksuqaGHLM1i-fv1RKxll5RZ5"
+            };
             downloadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    openPdfFromDrive(urls[topicNumber-1]);
 //                    downloadPdf();
 //                    copyRawFileToLocalStorage();
-                    Intent intent = new Intent(ViewTopicVid.this, ViewPdf.class);
-
-                    intent.putExtra("tN", topics[topicNumber-1]); // Change this number to select the desired topic
-                    startActivity(intent);
+//                    Intent intent = new Intent(ViewTopicVid.this, ViewPdf.class);
+//
+//                    intent.putExtra("tN", topics[topicNumber-1]); // Change this number to select the desired topic
+//                    startActivity(intent);
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urls[topicNumber-1]));
+//                    if (intent.resolveActivity(getPackageManager()) != null) {
+//                        startActivity(intent);
+//                    }
                 }
             });
 
@@ -103,46 +118,16 @@ public class ViewTopicVid extends AppCompatActivity {
             webView.loadUrl(selectedVideoUrl);
         }
     }
-    private void copyRawFileToLocalStorage() {
-        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            // If permission is not granted, request it from the user.
-            requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_PERMISSION_CODE);
-        } else {
-            // Permission is already granted; copy the file.
-            performCopyOperation();
-        }
-    }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, proceed with copying the file.
-                performCopyOperation();
-            } else {
-                // Permission denied, handle it accordingly (e.g., show a message to the user).
-            }
-        }
-    }
-
-    private void performCopyOperation() {
-        String filename = "bfs.pdf"; // Replace with the actual filename of your PDF
-        File localFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), filename);
-
-        AssetManager assetManager = getAssets();
+    private void openPdfFromDrive(String pdfDriveUrl) {
         try {
-            InputStream in = assetManager.open("raw/" + filename);
-            FileOutputStream out = new FileOutputStream(localFile);
-            byte[] buffer = new byte[1024];
-            int read;
-            while ((read = in.read(buffer)) != -1) {
-                out.write(buffer, 0, read);
-            }
-            in.close();
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            Uri uri = Uri.parse(pdfDriveUrl);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(uri, "application/pdf");
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            // Handle the case where no PDF viewer app is installed
+            // You can prompt the user to install one or provide an alternative action.
         }
     }
 }

@@ -20,7 +20,7 @@ Users can easily view the PDF materials using their preferred pre-installed PDF 
 1. Clone the repository to your local machine.
 
 ```bash
-git clone https://github.com/your/repository.git
+git clone [https://github.com/your/repository.git](https://github.com/aaditeeiche/resource-materials.git)
 ```
 
 2. Open the project in Android Studio.

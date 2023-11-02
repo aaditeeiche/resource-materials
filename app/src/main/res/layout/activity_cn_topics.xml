@@ -3,34 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <Button
         android:id="@+id/osi"
-        android:layout_width="317dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
         android:text="OSI"
+        android:fontFamily="@font/baloo_tamma"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_button_background"
+        android:layout_weight="1"
+        android:width="270dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/tcpIp"
-        android:layout_width="317dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="TCP/IP"
+        android:fontFamily="@font/baloo_tamma"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_button_background"
+        android:layout_weight="1"
+        android:width="270dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/osi" />
 
     <Button
         android:id="@+id/routingProtocols"
-        android:layout_width="315dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Routing Protocols"
+        android:fontFamily="@font/baloo_tamma"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_button_background"
+        android:layout_weight="1"
+        android:width="270dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,14 +54,16 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="200dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Computer Networking"
         android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:padding="10dp"
+        android:background="#61c8a4"
+        android:fontFamily="@font/baloo_tamma"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#000000" />
 </androidx.constraintlayout.widget.ConstraintLayout>

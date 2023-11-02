@@ -54,7 +54,8 @@ public class ViewTopicVid extends AppCompatActivity {
                     "https://youtu.be/Y40bRyPQQr0?si=l7kGQG5PXm75I_VN",
                     "https://youtu.be/jDM6_TnYIqE?si=xTcfVRk3Cbjzpzz1"
             };
-
+            TextView title = findViewById(R.id.titleTextView);
+            title.setText((topics[topicNumber-1]).toUpperCase());
             String selectedVideoUrl = videoUrls[topicNumber-1];
             webView.setWebViewClient(new WebViewClient());
             webView.loadUrl(selectedVideoUrl);
@@ -102,7 +103,8 @@ public class ViewTopicVid extends AppCompatActivity {
                     "https://youtu.be/PpsEaqJV_A0?si=F3Lq38TWhUMaNIZR",
                     "https://youtu.be/at0jBPXbFqE?si=1g-RB5iNzrgaPNzy"
             };
-
+            TextView title = findViewById(R.id.titleTextView);
+            title.setText(topics[topicNumber-1]);
             String selectedVideoUrl = videoUrls[topicNumber-1];
             webView.setWebViewClient(new WebViewClient());
             webView.loadUrl(selectedVideoUrl);
@@ -149,7 +151,8 @@ public class ViewTopicVid extends AppCompatActivity {
                     "https://youtu.be/9iE9Mj4m8jk?si=4FlDWV4MVLfsNqBA",
                     "https://youtu.be/cJ21moQpofY?si=c-S0QphozLWR8ig7"
             };
-
+            TextView title = findViewById(R.id.titleTextView);
+            title.setText(topics[topicNumber-1]);
             String selectedVideoUrl = videoUrls[topicNumber-1];
             webView.setWebViewClient(new WebViewClient());
             webView.loadUrl(selectedVideoUrl);

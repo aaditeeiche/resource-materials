@@ -33,9 +33,9 @@ public class ViewTopicVid extends AppCompatActivity {
 
         String topicName = getIntent().getStringExtra("subject");
         int topicNumber = getIntent().getIntExtra("topicNumber", 1);
-        WebView webView = findViewById(R.id.topicWebView);
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);  // Enable JavaScript for embedded YouTube videos
+//        WebView webView = findViewById(R.id.topicWebView);
+//        WebSettings webSettings = webView.getSettings();
+//        webSettings.setJavaScriptEnabled(true);  // Enable JavaScript for embedded YouTube videos
 
         assert topicName != null;
         if (topicName.equals("Data Structures and Algorithms")) {
@@ -57,18 +57,28 @@ public class ViewTopicVid extends AppCompatActivity {
             TextView title = findViewById(R.id.titleTextView);
             title.setText((topics[topicNumber-1]).toUpperCase());
             String selectedVideoUrl = videoUrls[topicNumber-1];
-            webView.setWebViewClient(new WebViewClient());
-            webView.loadUrl(selectedVideoUrl);
+//            webView.setWebViewClient(new WebViewClient());
+//            webView.loadUrl(selectedVideoUrl);
             TextView contentAboutTopic = findViewById(R.id.textView);
             contentAboutTopic.setText(content[topicNumber-1]);
 
             Button downloadButton = findViewById(R.id.downloadButton);
+            Button viewRefVid = findViewById(R.id.viewRefVid);
 
             String[] urls = {
                     "https://drive.google.com/uc?export=download&id=1CQZzTCdCBY0EqY-vGt5xSz8xp-jPQpC0",
                     "https://drive.google.com/uc?export=download&id=1GRt83W-SbYTHqM-6RgrqSU31IwNSumK3",
                     "https://drive.google.com/uc?export=download&id=1_TebdDvaksuqaGHLM1i-fv1RKxll5RZ5"
             };
+
+            viewRefVid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ViewTopicVid.this, ViewRefVid.class);
+                    intent.putExtra("url", videoUrls[topicNumber-1]); // Change this number to select the desired topic
+                    startActivity(intent);
+                }
+            });
             downloadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -106,18 +116,26 @@ public class ViewTopicVid extends AppCompatActivity {
             TextView title = findViewById(R.id.titleTextView);
             title.setText(topics[topicNumber-1]);
             String selectedVideoUrl = videoUrls[topicNumber-1];
-            webView.setWebViewClient(new WebViewClient());
-            webView.loadUrl(selectedVideoUrl);
+//            webView.setWebViewClient(new WebViewClient());
+//            webView.loadUrl(selectedVideoUrl);
             TextView contentAboutTopic = findViewById(R.id.textView);
             contentAboutTopic.setText(content[topicNumber-1]);
 
             Button downloadButton = findViewById(R.id.downloadButton);
-
+            Button viewRefVid = findViewById(R.id.viewRefVid);
             String[] urls = {
                     "https://drive.google.com/uc?export=download&id=1zSJ5PElfTFBhsuoh0he1sLvdyt-IN4H6",
                     "https://drive.google.com/uc?export=download&id=17ZiUHjC2wdcDjz3xRxeoojiXtFGvMHw-",
                     "https://drive.google.com/uc?export=download&id=1OKCd1jZsntBEyH6ki_gFKJNbW9ctjkBi"
             };
+            viewRefVid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ViewTopicVid.this, ViewRefVid.class);
+                    intent.putExtra("url", videoUrls[topicNumber-1]); // Change this number to select the desired topic
+                    startActivity(intent);
+                }
+            });
             downloadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -154,18 +172,27 @@ public class ViewTopicVid extends AppCompatActivity {
             TextView title = findViewById(R.id.titleTextView);
             title.setText(topics[topicNumber-1]);
             String selectedVideoUrl = videoUrls[topicNumber-1];
-            webView.setWebViewClient(new WebViewClient());
-            webView.loadUrl(selectedVideoUrl);
+//            webView.setWebViewClient(new WebViewClient());
+//            webView.loadUrl(selectedVideoUrl);
             TextView contentAboutTopic = findViewById(R.id.textView);
             contentAboutTopic.setText(content[topicNumber-1]);
 
             Button downloadButton = findViewById(R.id.downloadButton);
-
+            Button viewRefVid = findViewById(R.id.viewRefVid);
             String[] urls = {
                     "https://drive.google.com/uc?export=download&id=1CVTrlPh-37tGDYJcUX47Mc1LCea00thF",
                     "https://drive.google.com/uc?export=download&id=1rA70yy_CaFfdnbFDT7g-2OARtccQa82A",
                     "https://drive.google.com/uc?export=download&id=1Wq4wxGszl_fucwUikrfXNieXHc4TDJaz"
             };
+
+            viewRefVid.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(ViewTopicVid.this, ViewRefVid.class);
+                    intent.putExtra("url", videoUrls[topicNumber-1]); // Change this number to select the desired topic
+                    startActivity(intent);
+                }
+            });
             downloadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

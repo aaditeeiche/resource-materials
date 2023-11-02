@@ -31,6 +31,9 @@
             android:name=".SubjectTopicsActivity">
         </activity>
         <activity
+            android:name=".ViewRefVid">
+        </activity>
+        <activity
             android:name=".SubjectSubTopicActivity">
         </activity>
         <activity
